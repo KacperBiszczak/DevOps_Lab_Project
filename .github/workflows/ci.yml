@@ -1,0 +1,26 @@
+name: CI Pipeline - Testy DevOps_Lab 
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pobierz kod z repozytorium
+        uses: actions/checkout@v4
+
+      - name: Zainstaluj Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Zainstaluj biblioteki (npm install)
+        run: npm install
+
+      - name: Uruchom testy jednostkowe (npm test)
+        run: npm test
