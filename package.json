@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Działa!\" ",
+    "test": "node app.test.js",
     "dev": "node app.js"
   },
   "repository": {
