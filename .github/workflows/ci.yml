@@ -1,29 +1,26 @@
-name: CI Pipeline
+name: CI Pipeline - Testy DevOps_Lab 
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ master ]
+  push:
+    branches: [ master ]
 
 jobs:
-  build:
+  test-job:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Pobranie repozytorium
-      uses: actions/checkout@v4
+      - name: Pobierz kod z repozytorium
+        uses: actions/checkout@v4
 
-    - name: Instalacja .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 8.0.x
+      - name: Zainstaluj Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-    - name: Restore
-      run: dotnet restore
+      - name: Zainstaluj biblioteki (npm install)
+        run: npm install
 
-    - name: Build
-      run: dotnet build --no-restore
-
-    - name: Testy
-      run: dotnet test --no-build --verbosity normal
+      - name: Uruchom testy jednostkowe (npm test)
+        run: npm test
