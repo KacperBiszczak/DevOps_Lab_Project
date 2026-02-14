@@ -3,7 +3,7 @@ const app = express();
 
 // Endpoint 1: Główna strona
 app.get('/', (req, res) => {
-    res.status(200).send('Aplikacja działa!');
+    res.status(200).send('Aplikacja działa!!!');
 });
 
 // Endpoint 2: Lista produktów
