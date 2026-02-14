@@ -17,6 +17,7 @@ app.get('/products', (req, res) => {
 
 module.exports = app;
 
+const PORT = process.env.PORT || 3000;
 if (require.main === module) {
-    app.listen(3000, () => console.log('Port: 3000'));
+    app.listen(3000, () => console.log(`Serwer działa na porcie: ${PORT}`));
 }
